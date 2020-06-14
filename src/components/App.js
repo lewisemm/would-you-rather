@@ -1,8 +1,14 @@
 import React, { Fragment, Component } from 'react';
-import '../css/App.css'
-import LoginComponent from './LoginComponent'
-import { handleReceiveUsers } from '../actions/users'
 import { connect } from 'react-redux'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import LoginComponent from './LoginComponent'
+import NavComponent from './NavComponent'
+import { handleReceiveUsers } from '../actions/users'
+import '../css/App.css'
 
 class App extends Component {
   componentDidMount() {
@@ -12,9 +18,15 @@ class App extends Component {
 
   render() {
     return (
-      <Fragment>
-        <LoginComponent/>
-      </Fragment>
+      <Router>
+        <Fragment>
+          <Switch>
+            <Route path="/login">
+              <LoginComponent/>
+            </Route>
+          </Switch>
+        </Fragment>
+      </Router>
     )
   }
 }
