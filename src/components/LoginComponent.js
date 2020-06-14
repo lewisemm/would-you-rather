@@ -3,8 +3,27 @@ import logo from '../logo.svg';
 import '../css/Login.css'
 import Select from './Select'
 import { connect } from 'react-redux'
+import authedUser from '../actions/authedUser'
 
 class LoginComponent extends Component {
+  state = {
+    user: ''
+  }
+
+  handleSelectChange = (event) => {
+    event.preventDefault()
+    this.setState({
+      user: event.target.value
+    })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    if (this.state.user && this.state.user.length > 0) {
+      this.props.dispatch(authedUser(this.state.user))
+    }
+  }
+
   render() {
     const { users } = this.props
 
@@ -20,15 +39,22 @@ class LoginComponent extends Component {
         </div>
         <div className="row justify-content-center">
           <div className="col-4">
-            <form>
+            <form onSubmit={this.handleSubmit}>
               <div className="form-row">
                 <div className="form-group col">
-                  <Select users={users}/>
+                  <Select
+                    users={users}
+                    handleSelectChange={this.handleSelectChange}
+                  />
                 </div>
               </div>
               <div className="form-row justify-content-center">
                 <div className="form-group col-6 text-center">
-                  <button type="submit" className="btn btn-primary">Login</button>
+                  <button
+                    type="submit"
+                    className="btn btn-primary"
+                    disabled={this.state.user === ''}
+                  >Login</button>
                 </div>
               </div>
             </form>
@@ -39,4 +65,10 @@ class LoginComponent extends Component {
   }
 }
 
-export default connect(state => ({ users: state.users }))(LoginComponent)
+const mapStateToProps = function(state) {
+  return {
+    users: state.users
+  }
+}
+
+export default connect(mapStateToProps)(LoginComponent)
