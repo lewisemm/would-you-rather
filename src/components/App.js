@@ -6,7 +6,7 @@ import {
   Route
 } from "react-router-dom";
 import LoginComponent from './LoginComponent'
-import NavComponent from './NavComponent'
+import UserInfoComponent from './UserInfoComponent'
 import { handleReceiveUsers } from '../actions/users'
 import '../css/App.css'
 
@@ -21,6 +21,9 @@ class App extends Component {
       <Router>
         <Fragment>
           <Switch>
+            <Route exact path="/">
+              <UserInfoComponent height={100} width={100} />
+            </Route>
             <Route path="/login">
               <LoginComponent/>
             </Route>
