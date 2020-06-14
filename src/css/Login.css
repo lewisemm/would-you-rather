@@ -1,0 +1,14 @@
+.logo-parent {
+  max-height: 100px;
+}
+
+.logo {
+  height: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login-first-row {
+  padding-top: 15%;
+}
