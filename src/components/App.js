@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 import LoginComponent from './LoginComponent'
 import Logout from './Logout'
+import NavComponent from './NavComponent'
+import UserInfoComponent from './UserInfoComponent'
 import { handleReceiveUsers } from '../actions/users'
 import '../css/App.css'
 
@@ -21,9 +23,21 @@ class App extends Component {
       <Router>
         <Fragment>
           <Switch>
-            <Route exact path="/">
-              <Logout/>
-            </Route>
+            <Fragment>
+              <div className="row align-items-center">
+                <div className="col-4">
+                  <NavComponent/>
+                </div>
+                <div className="col-7">
+                  <div style={{ paddingTop: '20px', float: 'right' }}>
+                    <UserInfoComponent height={50} width={50}/>
+                  </div>
+                </div>
+                <div className="col-1">
+                  <Logout/>
+                </div>
+              </div>
+            </Fragment>
             <Route path="/login">
               <LoginComponent/>
             </Route>

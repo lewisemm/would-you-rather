@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { logout } from '../actions/authedUser'
 import { connect } from 'react-redux'
+import '../css/common.css'
 
 class Logout extends Component {
   handleClick = (event) => {
@@ -11,9 +12,9 @@ class Logout extends Component {
 
   render() {
     return (
-      <ul className="nav">
+      <ul className="nav center-justified">
         <li className="nav-item">
-          <Link to="/login" onClick={this.handleClick}>
+          <Link className="nav-link" to="/login" onClick={this.handleClick}>
             Logout
           </Link>
         </li>

@@ -1,13 +1,12 @@
 import React, { Component, Fragment } from 'react'
-import LoadingBar from 'react-redux-loading-bar'
 import { connect } from 'react-redux'
 
 class UserInfoComponent extends Component {
   render() {
+    const { height, width } = this.props
     if (this.props.loading && this.props.loading.default === 0) {
       const authedUser = 'sarahedo'
       const { name, avatarURL } = this.props.users[authedUser]
-      const { height, width } = this.props
 
       let fontSize
 
@@ -20,6 +19,9 @@ class UserInfoComponent extends Component {
           break;
         case 60:
           fontSize = 12
+          break;
+        case 50:
+          fontSize = 10
           break;
         default:
           fontSize = 15
@@ -40,12 +42,21 @@ class UserInfoComponent extends Component {
             />
           </div>
           <div style={{ width }} className='text-center'>
-            <p style={{ fontSize }}>{name}</p>
+            <p style={{ fontSize, fontWeight: 'bold' }}>{name}</p>
           </div>
         </Fragment>
       )
     }
-    return <LoadingBar/>
+
+    return (
+      <div
+        className="text-center"
+        style={{ width, height: height * 1.3 }}>
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+      </div>
+    )
   }
 }
 
