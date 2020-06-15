@@ -3,7 +3,7 @@ import logo from '../logo.svg';
 import '../css/Login.css'
 import Select from './Select'
 import { connect } from 'react-redux'
-import authedUser from '../actions/authedUser'
+import { authedUser } from '../actions/authedUser'
 
 class LoginComponent extends Component {
   state = {

@@ -6,7 +6,7 @@ import {
   Route
 } from "react-router-dom";
 import LoginComponent from './LoginComponent'
-import UserInfoComponent from './UserInfoComponent'
+import Logout from './Logout'
 import { handleReceiveUsers } from '../actions/users'
 import '../css/App.css'
 
@@ -22,7 +22,7 @@ class App extends Component {
         <Fragment>
           <Switch>
             <Route exact path="/">
-              <UserInfoComponent height={100} width={100} />
+              <Logout/>
             </Route>
             <Route path="/login">
               <LoginComponent/>
