@@ -7,13 +7,13 @@ import {
 } from "react-router-dom";
 import Dashboard from './Dashboard'
 import LoginComponent from './LoginComponent'
-import { handleReceiveUsers } from '../actions/users'
+import { handleReceiveInitialData } from '../actions/shared'
 import '../css/App.css'
 
 class App extends Component {
   componentDidMount() {
     const { dispatch } = this.props
-    dispatch(handleReceiveUsers())
+    dispatch(handleReceiveInitialData())
   }
 
   render() {
