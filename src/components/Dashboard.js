@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import TopMenu from './TopMenu'
+import PollList from './PollList'
 
 export default function Home(props) {
   return (
@@ -7,7 +8,7 @@ export default function Home(props) {
       <TopMenu/>
       <div className="row justify-content-center">
         <div className="col-6 text-center">
-          And Now This...
+          <PollList/>
         </div>
       </div>
     </Fragment>
