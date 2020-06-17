@@ -42,12 +42,12 @@ class ReadWritePollDetails extends Component {
     return (
       <Fragment>
         <div className="form-row">
-          <div className="col">
+          <div className="col text-center">
             <h5>Would you rather...</h5>
           </div>
         </div>
         <div className="form-row">
-          <div className="col">
+          <div className="col text-center">
             <button
               type="button"
               className="btn btn-outline-primary"
@@ -58,12 +58,12 @@ class ReadWritePollDetails extends Component {
           </div>
         </div>
         <div className="form-row">
-          <div className="col">
+          <div className="col text-center">
             <h5>Or</h5>
             </div>
         </div>
         <div className="form-row">
-          <div className="col">
+          <div className="col text-center">
             <button
               type="button"
               className="btn btn-outline-primary"

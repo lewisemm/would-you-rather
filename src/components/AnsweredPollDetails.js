@@ -9,7 +9,7 @@ export default function AnsweredPollDetails(props) {
   const answeredTwo = optionTwo.votes.includes(authedUser)
   return (
     <div>
-      <h5>Would you rather...</h5>
+      <h5 className="text-center">Would you rather...</h5>
       <div
         className={answeredOne ? "alert alert-success" : "alert alert-secondary"}
         role="alert"
@@ -27,7 +27,7 @@ export default function AnsweredPollDetails(props) {
         </div>
         <span>{optionOne.votes.length} out of {votes} votes.</span>
       </div>
-      <h5>Or</h5>
+      <h5 className="text-center">Or</h5>
       <div
         className={answeredTwo ? "alert alert-success" : "alert alert-secondary"}
         role="alert"

@@ -13,17 +13,15 @@ function PollView(props) {
     <Fragment>
       <TopMenu/>
       <div
-        className="row align-items-center"
-        // style={{
-        //   paddingTop: '20px',
-        //   borderBottom: '1px solid #007bff',
-        //   cursor: 'pointer'
-        // }}
+        className="row align-items-center justify-content-center"
+        style={{
+          paddingTop: '20px'
+        }}
       >
-        <div className="col-4">
+        <div className="col-2">
           <UserInfoComponent authedUser={author} height={160} width={160}/>
         </div>
-        <div className="col-8">
+        <div className="col-4">
           <ReadWritePollDetails
             id={qid}
             optionOne={optionOne}
@@ -36,13 +34,6 @@ function PollView(props) {
   )
 }
 
-// return (
-//     <UnansweredPollDetails
-//       optionOne={poll.optionOne}
-//       optionTwo={poll.optionTwo}
-//       id={qid}
-//     />
-// )
 const mapStateToProps = (state) => {
   return {
     questions: state.questions,

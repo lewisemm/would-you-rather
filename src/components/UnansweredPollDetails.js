@@ -10,7 +10,7 @@ export default class UnansweredPollDetails extends Component {
       <div>
         <div className="form-row">
           <div className="col">
-            <h5>Would you rather...</h5>
+            <h5 className="text-center">Would you rather...</h5>
           </div>
         </div>
         <div className="form-row">
@@ -20,7 +20,7 @@ export default class UnansweredPollDetails extends Component {
         </div>
         <div className="form-row">
           <div className="col">
-            <h5>Or</h5>
+            <h5 className="text-center">Or</h5>
             </div>
         </div>
         <div className="form-row">
