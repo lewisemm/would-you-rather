@@ -1,5 +1,9 @@
 import { RECEIVE_INITIAL_DATA } from '../actions/shared'
-import { ANSWER_QUESTION, UNDO_ANSWER_QUESTION } from '../actions/questions'
+import {
+  ANSWER_QUESTION,
+  UNDO_ANSWER_QUESTION,
+  ADD_QUESTION
+} from '../actions/questions'
 
 export function questions(state = {}, action) {
   switch(action.type) {
@@ -33,6 +37,15 @@ export function questions(state = {}, action) {
               return userId !== authedUser
             })
           }
+        }
+      }
+    }
+    case ADD_QUESTION: {
+      const { id } = action.data
+      return {
+        ...state,
+        [id]: {
+          ...action.data
         }
       }
     }

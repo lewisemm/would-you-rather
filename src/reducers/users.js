@@ -1,5 +1,9 @@
 import { RECEIVE_INITIAL_DATA } from '../actions/shared'
-import { ANSWER_QUESTION, UNDO_ANSWER_QUESTION } from '../actions/questions'
+import {
+  ANSWER_QUESTION,
+  UNDO_ANSWER_QUESTION,
+  ADD_QUESTION
+} from '../actions/questions'
 
 export function users(state = {}, action) {
   switch(action.type) {
@@ -31,6 +35,18 @@ export function users(state = {}, action) {
         [authedUser]: {
           ...state[authedUser],
           answers: undoneAnswers
+        }
+      }
+    }
+    case ADD_QUESTION: {
+      const { author, id } = action.data
+
+      console.log('state[author]... ', state[author])
+      return {
+        ...state,
+        [author]: {
+          ...state[author],
+          questions: state[author].questions.concat([id])
         }
       }
     }
