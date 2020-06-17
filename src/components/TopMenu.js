@@ -1,9 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import Logout from './Logout'
 import NavComponent from './NavComponent'
 import UserInfoComponent from './UserInfoComponent'
 
-export default function TopMenu(props) {
+function TopMenu(props) {
+  const { authedUser } = props
   return (
     <div className="row align-items-center">
       <div className="col-4">
@@ -11,7 +13,7 @@ export default function TopMenu(props) {
       </div>
       <div className="col-7">
         <div style={{ paddingTop: '20px', float: 'right' }}>
-          <UserInfoComponent height={50} width={50}/>
+          <UserInfoComponent height={50} width={50} authedUser={authedUser}/>
         </div>
       </div>
       <div className="col-1">
@@ -20,3 +22,11 @@ export default function TopMenu(props) {
     </div>
   )
 }
+
+const mapStateToProps = (state) => {
+  return {
+    authedUser: state.authedUser
+  }
+}
+
+export default connect(mapStateToProps)(TopMenu)

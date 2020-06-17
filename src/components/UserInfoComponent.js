@@ -62,8 +62,7 @@ class UserInfoComponent extends Component {
 const mapStateToProps = function(state) {
   return {
     users: state.users,
-    loading: state.loadingBar,
-    authedUser: state.authedUser
+    loading: state.loadingBar
   }
 }
 
