@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Poll from './Poll'
 
 function PollList(props) {
-  const { answeredQuestions, unansweredQuestions } = props
+  const { answeredQuestions, unansweredQuestions, authedUser } = props
   
   return (
     <Fragment>
@@ -18,16 +18,13 @@ function PollList(props) {
       <div className="tab-content" id="myTabContent">
         <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
           { Object.keys(unansweredQuestions).map(qid => {
-            return <Poll key={qid} poll={unansweredQuestions[qid]} />
+            return <Poll key={qid} poll={unansweredQuestions[qid]}/>
           })}
         </div>
         <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-          <div className="container">
-
-            { Object.keys(answeredQuestions).map(qid => {
-              return <Poll key={qid} poll={answeredQuestions[qid]} />
-            })}
-          </div>
+          { Object.keys(answeredQuestions).map(qid => {
+            return <Poll key={qid} poll={answeredQuestions[qid]} authedUser={authedUser}/>
+          })}
         </div>
       </div>
     </Fragment>
@@ -35,15 +32,9 @@ function PollList(props) {
 }
 
 const mapStateToProps = (state) => {
-  const { questions, users } = state
-  let answeredIds = {}
+  const { questions, users, authedUser } = state
 
-  Object.keys(users).map(key => {
-    if (users[key].answers) {
-      answeredIds = Object.assign(answeredIds, users[key].answers)
-    }
-    return null
-  })
+  let answeredIds = Object.assign({}, users[authedUser].answers)
 
   const answeredQuestions = {}
   const unansweredQuestions = {}
@@ -58,7 +49,8 @@ const mapStateToProps = (state) => {
 
   return {
     answeredQuestions,
-    unansweredQuestions
+    unansweredQuestions,
+    authedUser
   }
 }
 
