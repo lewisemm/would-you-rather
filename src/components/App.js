@@ -3,8 +3,7 @@ import { connect } from 'react-redux'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Redirect
+  Route
 } from "react-router-dom";
 import Dashboard from './Dashboard'
 import LoginComponent from './LoginComponent'

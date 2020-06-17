@@ -21,7 +21,6 @@ export function questions(state = {}, action) {
       }
     }
     case UNDO_ANSWER_QUESTION: {
-      console.log('action', action)
       const { qid, answer } = action.data
       const { authedUser } = action
       return {
