@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
-import Poll from './Poll'
+import PollListItem from './PollListItem'
 
 function PollList(props) {
   const { answeredQuestions, unansweredQuestions, authedUser } = props
@@ -18,12 +18,12 @@ function PollList(props) {
       <div className="tab-content" id="myTabContent">
         <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
           { Object.keys(unansweredQuestions).map(qid => {
-            return <Poll key={qid} poll={unansweredQuestions[qid]}/>
+            return <PollListItem key={qid} poll={unansweredQuestions[qid]}/>
           })}
         </div>
         <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
           { Object.keys(answeredQuestions).map(qid => {
-            return <Poll key={qid} poll={answeredQuestions[qid]} authedUser={authedUser}/>
+            return <PollListItem key={qid} poll={answeredQuestions[qid]} authedUser={authedUser}/>
           })}
         </div>
       </div>
