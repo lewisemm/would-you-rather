@@ -8,6 +8,7 @@ import {
 import Dashboard from './Dashboard'
 import LoginComponent from './LoginComponent'
 import AuthenticatedRoute from './AuthenticatedRoute'
+import PollView from './PollView'
 import { handleReceiveInitialData } from '../actions/shared'
 import '../css/App.css'
 
@@ -25,7 +26,9 @@ class App extends Component {
             <AuthenticatedRoute exact path="/">
               <Dashboard/>
             </AuthenticatedRoute>
-
+            <AuthenticatedRoute path="/questions/:qid">
+                <PollView/>
+              </AuthenticatedRoute>
             <Route path="/login">
               <LoginComponent/>
             </Route>
