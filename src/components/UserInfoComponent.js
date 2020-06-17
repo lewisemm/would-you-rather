@@ -3,9 +3,8 @@ import { connect } from 'react-redux'
 
 class UserInfoComponent extends Component {
   render() {
-    const { height, width } = this.props
+    const { height, width, authedUser } = this.props
     if (this.props.loading && this.props.loading.default === 0) {
-      const authedUser = 'sarahedo'
       const { name, avatarURL } = this.props.users[authedUser]
 
       let fontSize
@@ -63,7 +62,8 @@ class UserInfoComponent extends Component {
 const mapStateToProps = function(state) {
   return {
     users: state.users,
-    loading: state.loadingBar
+    loading: state.loadingBar,
+    authedUser: state.authedUser
   }
 }
 

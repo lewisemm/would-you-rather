@@ -15,8 +15,7 @@ export function questions(state = {}, action) {
           ...state[qid],
           [answer]: {
             ...state[qid][answer],
-            // TODO: Hardcoding sarahedo until authentication is resolved!
-            votes: state[qid][answer].votes.concat(['sarahedo'])
+            votes: state[qid][answer].votes.concat([authedUser])
           }
         }
       }

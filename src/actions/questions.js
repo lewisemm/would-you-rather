@@ -21,14 +21,11 @@ function undoAnswerQuestion(data, authedUser) {
 export default function handleAnswerQuestion(data) {
   return (dispatch, getState) => {
     const { authedUser } = getState()
-    // TODO: Figure out what is going on with authedUser then remove the
-    // line below
-    const sarah = authedUser ? authedUser : 'sarahedo'
     const { qid, answer } = data
-    dispatch(answerQuestion(data, sarah))
-    _saveQuestionAnswer({ authedUser: sarah, answer, qid })
+    dispatch(answerQuestion(data, authedUser))
+    _saveQuestionAnswer({ authedUser, answer, qid })
       .catch(() => {
-        dispatch(undoAnswerQuestion(data, sarah))
+        dispatch(undoAnswerQuestion(data, authedUser))
         alert('Something went wrong while trying to save your response. Please try again.')
       })
   }

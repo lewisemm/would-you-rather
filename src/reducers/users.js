@@ -9,9 +9,6 @@ export function users(state = {}, action) {
     case ANSWER_QUESTION: {
       const { qid, answer } = action.data
       let { authedUser } = action
-      // TODO: Use the authedUser from the store instead of hardcoding.
-      // This will be resolved once authentication is figured out.
-      authedUser = 'sarahedo'
       return {
         ...state,
         [authedUser]: {
@@ -26,9 +23,7 @@ export function users(state = {}, action) {
     case UNDO_ANSWER_QUESTION: {
       const { qid } = action.data
       let { authedUser } = action
-      // TODO: Use the authedUser from the store instead of hardcoding.
-      // This will be resolved once authentication is figured out.
-      authedUser = 'sarahedo'
+
       let undoneAnswers = Object.assign({}, state[authedUser].answers)
       delete undoneAnswers[qid]
       return {
