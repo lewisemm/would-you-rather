@@ -19,7 +19,6 @@ class App extends Component {
   }
 
   render() {
-    const { authedUser } = this.props
     return (
       <Router>
         <Fragment>
@@ -29,7 +28,7 @@ class App extends Component {
             </AuthenticatedRoute>
 
             <Route path="/login">
-              { authedUser ? <Redirect to="/"/> : <LoginComponent/>}
+              <LoginComponent/>
             </Route>
           </Switch>
         </Fragment>
@@ -38,10 +37,4 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    authedUser: state.authedUser
-  }
-}
-
-export default connect(mapStateToProps)(App);
+export default connect()(App);
