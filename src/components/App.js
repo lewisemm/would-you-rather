@@ -3,10 +3,12 @@ import { connect } from 'react-redux'
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from "react-router-dom";
 import Dashboard from './Dashboard'
 import LoginComponent from './LoginComponent'
+import AuthenticatedRoute from './AuthenticatedRoute'
 import { handleReceiveInitialData } from '../actions/shared'
 import '../css/App.css'
 
@@ -17,15 +19,17 @@ class App extends Component {
   }
 
   render() {
+    const { authedUser } = this.props
     return (
       <Router>
         <Fragment>
           <Switch>
-          <Route exact path="/">
-            <Dashboard/>
-          </Route>
+            <AuthenticatedRoute exact path="/">
+              <Dashboard/>
+            </AuthenticatedRoute>
+
             <Route path="/login">
-              <LoginComponent/>
+              { authedUser ? <Redirect to="/"/> : <LoginComponent/>}
             </Route>
           </Switch>
         </Fragment>
@@ -34,4 +38,10 @@ class App extends Component {
   }
 }
 
-export default connect()(App);
+const mapStateToProps = (state) => {
+  return {
+    authedUser: state.authedUser
+  }
+}
+
+export default connect(mapStateToProps)(App);
