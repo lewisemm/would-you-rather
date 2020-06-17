@@ -1,14 +1,11 @@
 import React, { Component, Fragment } from 'react'
-import { Redirect } from 'react-router-dom'
 import logo from '../logo.svg';
 import '../css/Login.css'
 import Select from './Select'
+import Redirector from './Redirector'
 import { connect } from 'react-redux'
 import { authedUser } from '../actions/authedUser'
 
-function Authed(props) {
-  return <Redirect to='/'/>
-}
 
 class LoginComponent extends Component {
   state = {
@@ -32,7 +29,7 @@ class LoginComponent extends Component {
   render() {
     const { users, authedUser } = this.props
     if (authedUser && authedUser.length > 0) {
-      return <Authed/>
+      return <Redirector url='/'/>
     }
 
     return (
