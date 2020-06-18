@@ -10,6 +10,7 @@ import LoginComponent from './LoginComponent'
 import AuthenticatedRoute from './AuthenticatedRoute'
 import PollView from './PollView'
 import AddPoll from './AddPoll'
+import LeaderboardList from './LeaderboardList'
 import { handleReceiveInitialData } from '../actions/shared'
 import '../css/App.css'
 
@@ -29,6 +30,9 @@ class App extends Component {
             </AuthenticatedRoute>
             <AuthenticatedRoute path="/add">
               <AddPoll/>
+            </AuthenticatedRoute>
+            <AuthenticatedRoute path="/leaderboard">
+              <LeaderboardList/>
             </AuthenticatedRoute>
             <AuthenticatedRoute path="/questions/:qid">
               <PollView/>
