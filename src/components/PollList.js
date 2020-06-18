@@ -4,6 +4,15 @@ import PollListItem from './PollListItem'
 
 function PollList(props) {
   const { answeredQuestions, unansweredQuestions, authedUser } = props
+  const sortedUnanswered = Object.keys(unansweredQuestions)
+    .sort((a, b) => {
+      return unansweredQuestions[b].timestamp - unansweredQuestions[a].timestamp
+    })
+  const sortedAnswered = Object.keys(answeredQuestions)
+  .sort((a, b) => {
+    return answeredQuestions[b].timestamp - answeredQuestions[a].timestamp
+  })
+
   
   return (
     <Fragment>
@@ -17,12 +26,12 @@ function PollList(props) {
       </ul>
       <div className="tab-content" id="myTabContent">
         <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-          { Object.keys(unansweredQuestions).map(qid => {
+          { sortedUnanswered.map(qid => {
             return <PollListItem key={qid} poll={unansweredQuestions[qid]}/>
           })}
         </div>
         <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-          { Object.keys(answeredQuestions).map(qid => {
+          { sortedAnswered.map(qid => {
             return <PollListItem key={qid} poll={answeredQuestions[qid]} authedUser={authedUser}/>
           })}
         </div>

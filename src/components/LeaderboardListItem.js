@@ -9,7 +9,7 @@ export default function LeaderboardListItem(props) {
   const score = questionsAnswered + questionsAsked
   return (
     <Fragment>
-      <div 
+      <div
         className="row align-items-center justify-content-center"
         style={{
           paddingTop: '20px',

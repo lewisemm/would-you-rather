@@ -6,7 +6,8 @@ import { handleAddQuestion } from '../actions/questions'
 class AddPoll extends Component {
   state = {
     optionOne: '',
-    optionTwo: ''
+    optionTwo: '',
+    pollCreated: false
   }
 
   handleChangeOptionOne = (event) => {
@@ -32,6 +33,11 @@ class AddPoll extends Component {
     }
 
     dispatch(handleAddQuestion(question))
+    this.setState({
+      pollCreated: true,
+      optionOneText: '',
+      optionTwoText: ''
+    })
   }
 
   render() {
@@ -64,8 +70,20 @@ class AddPoll extends Component {
                 />
               </div>
               <div className="form-group text-center">
-              <button type="submit" className="btn btn-primary">Create Poll</button>
+                <button type="submit" className="btn btn-primary">Create Poll</button>
               </div>
+
+              { this.state.pollCreated
+                ? (
+                  <div className="form-group text-center">
+                    <div className="alert alert-success" role="alert">
+                      A poll has been successfully added!
+                    </div>
+                  </div>
+                ): null
+              }
+
+
             </form>
           </div>
         </div>
