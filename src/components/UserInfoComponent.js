@@ -1,11 +1,22 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
+import logo from '../logo.svg';
 
 class UserInfoComponent extends Component {
+  isLoggedIn = () => {
+    const { authedUser } = this.props
+    if (authedUser) {
+      return this.props.users[authedUser]
+    }
+    return {
+      name: 'Not Logged In',
+      avatarURL: logo
+    }
+  }
   render() {
-    const { height, width, authedUser } = this.props
-    if (this.props.loading && this.props.loading.default === 0) {
-      const { name, avatarURL } = this.props.users[authedUser]
+    const { height, width, loading, users } = this.props
+    if (loading && loading.default === 0) {
+      const { name, avatarURL } = this.isLoggedIn()
 
       let fontSize
 
