@@ -6,18 +6,19 @@ function AuthenticatedRoute({ children, ...rest }) {
   const { authedUser } = rest
   return (
     <Route
-    {...rest}
-    render={() => {
-        return authedUser ? (
+      {...rest}
+      render={({ location }) =>
+        authedUser ? (
           children
         ) : (
           <Redirect
+            push
             to={{
-              pathname: "/login"
+              pathname: "/login",
+              state: { from: location.pathname }
             }}
           />
         )
-      }
       }
     />
   );

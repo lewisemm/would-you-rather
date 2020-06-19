@@ -8,8 +8,10 @@ import {
 import Dashboard from './Dashboard'
 import LoginComponent from './LoginComponent'
 import AuthenticatedRoute from './AuthenticatedRoute'
+import LoginRoute from './LoginRoute'
 import PollView from './PollView'
 import AddPoll from './AddPoll'
+import NotFound404 from './NotFound404'
 import LeaderboardList from './LeaderboardList'
 import { handleReceiveInitialData } from '../actions/shared'
 import '../css/App.css'
@@ -37,8 +39,11 @@ class App extends Component {
             <AuthenticatedRoute path="/questions/:qid">
               <PollView/>
             </AuthenticatedRoute>
-            <Route path="/login">
+            <LoginRoute path="/login">
               <LoginComponent/>
+            </LoginRoute>
+            <Route>
+              <NotFound404/>
             </Route>
           </Switch>
         </Fragment>
