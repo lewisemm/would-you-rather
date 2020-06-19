@@ -4,9 +4,13 @@ import { connect } from 'react-redux'
 import TopMenu from './TopMenu'
 import ReadWritePollDetails from './ReadWritePollDetails'
 import UserInfoComponent from './UserInfoComponent'
+import NotFound404 from './NotFound404'
 
 function PollView(props) {
   const { qid } = useParams()
+  if (!props.questions[qid]) {
+    return <NotFound404/>
+  }
   const { author, optionOne, optionTwo } = props.questions[qid]
   const { authedUser } = props
   return (
