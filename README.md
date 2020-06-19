@@ -95,6 +95,26 @@ Your code will talk to the database via 4 methods:
 | qid | String | The id of the question that was answered|
 | answer | String | The option the user selected. The value should be either `"optionOne"` or `"optionTwo"`|
 
+## Install and Launch
+Issue the following command to install the application's dependencies.
+
+```sh
+# if you are using using npm package manager
+npm install
+
+# if you are using using yarn package manager
+yarn
+```
+
+To run the application, run the following command.
+```sh
+# if you are using using npm package manager
+npm start
+
+# if you are using using yarn package manager
+yarn start
+```
+
 ## Contributing
 
 This repository is the starter code for *all* Udacity students. Therefore, we most likely will not accept pull requests. For details, check out [CONTRIBUTING.md](https://github.com/udacity/reactnd-project-would-you-rather-starter/blob/master/CONTRIBUTING.md).
