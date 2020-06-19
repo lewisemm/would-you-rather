@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import TopMenu from './TopMenu'
 import { handleAddQuestion } from '../actions/questions'
+import Redirector from './Redirector'
 
 class AddPoll extends Component {
   state = {
@@ -41,6 +42,9 @@ class AddPoll extends Component {
   }
 
   render() {
+    if (this.state.pollCreated) {
+      return <Redirector url='/'/>
+    }
     return (
       <Fragment>
         <TopMenu/>
@@ -72,18 +76,6 @@ class AddPoll extends Component {
               <div className="form-group text-center">
                 <button type="submit" className="btn btn-primary">Create Poll</button>
               </div>
-
-              { this.state.pollCreated
-                ? (
-                  <div className="form-group text-center">
-                    <div className="alert alert-success" role="alert">
-                      A poll has been successfully added!
-                    </div>
-                  </div>
-                ): null
-              }
-
-
             </form>
           </div>
         </div>
