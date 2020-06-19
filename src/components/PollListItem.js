@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import UserInfoComponent from './UserInfoComponent'
-import AnsweredPollDetails from './AnsweredPollDetails'
 import UnansweredPollDetails from './UnansweredPollDetails'
 import Redirector from './Redirector'
 
@@ -38,10 +37,9 @@ class PollListItem extends Component {
         <div className="col-8">
           { authedUser && authedUser.length > 0
             ? (
-              <AnsweredPollDetails
+              <UnansweredPollDetails
                 optionOne={optionOne}
                 optionTwo={optionTwo}
-                authedUser={authedUser}
               />)
             : (
               <UnansweredPollDetails
