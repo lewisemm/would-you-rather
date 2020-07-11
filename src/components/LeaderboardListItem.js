@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import UserInfoComponent from './UserInfoComponent'
+import AvatarComponent from './AvatarComponent'
 
 export default function LeaderboardListItem(props) {
   const { user } = props
@@ -17,7 +17,7 @@ export default function LeaderboardListItem(props) {
         }}
       >
         <div className="col-2">
-          <UserInfoComponent authedUser={id} height={160} width={160}/>
+          <AvatarComponent authedUser={id} height={160} width={160}/>
         </div>
         <div className="col-4">
           <div className="alert alert-secondary" role="alert">

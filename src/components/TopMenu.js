@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Logout from './Logout'
 import NavComponent from './NavComponent'
-import UserInfoComponent from './UserInfoComponent'
+import AvatarComponent from './AvatarComponent'
 
 function TopMenu(props) {
   const { authedUser } = props
@@ -13,7 +13,7 @@ function TopMenu(props) {
       </div>
       <div className="col-7">
         <div style={{ paddingTop: '20px', float: 'right' }}>
-          <UserInfoComponent height={50} width={50} authedUser={authedUser}/>
+          <AvatarComponent height={50} width={50} authedUser={authedUser}/>
         </div>
       </div>
       <div className="col-1">

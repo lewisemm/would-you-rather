@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import logo from '../logo.svg';
 
-class UserInfoComponent extends Component {
+class AvatarComponent extends Component {
   isLoggedIn = () => {
     const { authedUser } = this.props
     if (authedUser) {
@@ -14,7 +14,7 @@ class UserInfoComponent extends Component {
     }
   }
   render() {
-    const { height, width, loading, users } = this.props
+    const { height, width, loading } = this.props
     if (loading && loading.default === 0) {
       const { name, avatarURL } = this.isLoggedIn()
 
@@ -77,4 +77,4 @@ const mapStateToProps = function(state) {
   }
 }
 
-export default connect(mapStateToProps)(UserInfoComponent)
+export default connect(mapStateToProps)(AvatarComponent)

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import UserInfoComponent from './UserInfoComponent'
+import AvatarComponent from './AvatarComponent'
 import UnansweredPollDetails from './UnansweredPollDetails'
 import Redirector from './Redirector'
 
@@ -32,7 +32,7 @@ class PollListItem extends Component {
         onClick={this.handleRedirect}
       >
         <div className="col-4">
-          <UserInfoComponent authedUser={author} height={160} width={160}/>
+          <AvatarComponent authedUser={author} height={160} width={160}/>
         </div>
         <div className="col-8">
           { authedUser && authedUser.length > 0

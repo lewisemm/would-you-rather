@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { connect } from 'react-redux'
 import TopMenu from './TopMenu'
 import ReadWritePollDetails from './ReadWritePollDetails'
-import UserInfoComponent from './UserInfoComponent'
+import AvatarComponent from './AvatarComponent'
 import NotFound404 from './NotFound404'
 
 function PollView(props) {
@@ -23,7 +23,7 @@ function PollView(props) {
         }}
       >
         <div className="col-2">
-          <UserInfoComponent authedUser={author} height={160} width={160}/>
+          <AvatarComponent authedUser={author} height={160} width={160}/>
         </div>
         <div className="col-4">
           <ReadWritePollDetails
